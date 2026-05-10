@@ -14,7 +14,7 @@ namespace GraphQL.NET_API_AutomationTestFramework
             this._testOutput = testOutput;
         }
         [Fact]
-        public async Task GetWithQuerySegmentTest()
+        public async Task GetWithQueryURLSegmentTest()
         {
             // * Arrange: Set up the necessary preconditions and inputs for the test
 
@@ -44,6 +44,7 @@ namespace GraphQL.NET_API_AutomationTestFramework
             //Validate the response headers if any, status code and content
             _testOutput.WriteLine("Validate: Response Output is Valid");
             response.Name?.Should().Be("Keyboard");
+            response.Price.Should().Be(150);
 
             _testOutput.WriteLine("Complete: Execution Of Test Complete.");
         }
