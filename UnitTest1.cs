@@ -43,7 +43,7 @@ namespace GraphQL.NET_API_AutomationTestFramework
 
             //Validate the response headers if any, status code and content
             _testOutput.WriteLine("Validate: Response Output is Valid");
-            response.Should().NotBeNull();
+            response.Name?.Should().Be("Keyboard");
 
             _testOutput.WriteLine("Complete: Execution Of Test Complete.");
         }
