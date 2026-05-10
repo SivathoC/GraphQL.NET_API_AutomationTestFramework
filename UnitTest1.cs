@@ -48,5 +48,21 @@ namespace GraphQL.NET_API_AutomationTestFramework
 
             _testOutput.WriteLine("Complete: Execution Of Test Complete.");
         }
+        [Fact]
+        public async Task GetWithQueryParamterTest() {
+            var restClientOptions = new RestClientOptions() {
+                BaseUrl = new Uri("https://localhost:5001/"),
+                RemoteCertificateValidationCallback = (_,_,_,_) => true
+            };
+            var restClient = new RestClient(restClientOptions);
+            var request = new RestRequest("Product/GetProductByIdAndName", Method.Get);
+            request.AddQueryParameter("id", 1);
+            request.AddQueryParameter("name", "Keyboard");
+
+            var response = await restClient.GetAsync<Product>(request);
+
+            response.Name?.Should().Be("Keyboard");
+            response.Price.Should().Be(150);
+        }
     }
 }
