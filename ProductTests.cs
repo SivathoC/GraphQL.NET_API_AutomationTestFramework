@@ -7,7 +7,7 @@ using RestSharp;
 
 namespace GraphQL.NET_API_AutomationTestFramework
 {
-    public class ProductTests //: IClassFixture<RestLibrary>
+    public class ProductTests
     {
         private readonly ITestOutputHelper _testOutputHelper;
         private readonly IRestFactory _restFactory;
